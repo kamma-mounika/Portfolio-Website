@@ -2,15 +2,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <script src="{% static 'js/materialize.min.js' %}"></script>
-</head>
- <body style="background-image: url('{% static 'background.jpg' %}'); background-size: cover;">
 
-{% block content %} {% endblock %}
-{% block script%} {% endblock%}
+    <style>
+        /* Make background cover nicely on all devices */
+        body {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Increase max width to 1200px */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Optional for readability */
+            border-radius: 8px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 600px) {
+            .content-wrapper {
+                padding: 10px;
+                margin: 10px;
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body style="background-image: url('{% static 'background.jpg' %}'); background-size: cover;">
+
+    <div class="content-wrapper">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block script %}{% endblock %}
 </body>
 </html>
